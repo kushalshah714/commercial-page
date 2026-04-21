@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commercial Outdoor Solutions — PatioGurus Vancouver</title>
+<meta name="description" content="Commercial outdoor solutions for restaurants, hospitality venues, architects, and large-scale development projects in Greater Vancouver. Retractable awnings, motorized screens, louvre systems, and outdoor heating.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ── */
+:root {
+  --white:     #FFFFFF;
+  --cream:     #F9F7F4;
+  --grey-50:   #F2EFEB;
+  --grey-100:  #E4E0DA;
+  --grey-200:  #CCC8C0;
+  --grey-400:  #9A9590;
+  --grey-600:  #636058;
+  --grey-800:  #38352F;
+  --grey-950:  #1C1A16;
+  --orange:    #D45F1E;
+  --orange-lt: #E8885C;
+  --orange-dk: #B24E16;
+  --orange-bg: #FDF3EE;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans:  'Barlow', system-ui, sans-serif;
+  --font-cond:  'Barlow Condensed', system-ui, sans-serif;
+
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--white); color: var(--grey-950); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: var(--orange); }
+
+/* ── UTILITY ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.eyebrow {
+  font-family: var(--font-cond);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--orange); flex-shrink: 0; }
+.h-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--grey-950);
+}
+.h-display em { font-style: italic; color: var(--grey-600); }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ════════════════════════════════
+   NAV
+════════════════════════════════ */
+.pg-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--grey-100);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center;
+  padding: 0 48px;
+  justify-content: space-between;
+}
+.pg-nav-logo { display: flex; align-items: center; gap: 0; }
+.pg-nav-logo span.lo { font-family: var(--font-sans); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; }
+.pg-nav-logo .lo-patio { color: var(--grey-600); }
+.pg-nav-logo .lo-gurus { color: var(--orange); }
+.pg-nav-logo .lo-tag {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey-400);
+  padding-left: 14px; margin-left: 14px;
+  border-left: 1px solid var(--grey-100);
+}
+.pg-nav-right { display: flex; align-items: center; gap: 36px; }
+.pg-nav-links { display: flex; gap: 28px; list-style: none; }
+.pg-nav-links a {
+  font-family: var(--font-cond); font-size: 0.68rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-600);
+  transition: color 0.2s;
+}
+.pg-nav-links a:hover { color: var(--grey-950); }
+.pg-nav-cta {
+  font-family: var(--font-cond); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--white); background: var(--orange);
+  padding: 9px 22px; transition: background 0.2s;
+}
+.pg-nav-cta:hover { background: var(--grey-950); }
+
+/* ════════════════════════════════
+   HERO
+════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 64px;
+  background: var(--grey-950);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+/* Subtle diagonal texture */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 60px,
+      rgba(255,255,255,0.012) 60px,
+      rgba(255,255,255,0.012) 61px
+    );
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative; z-index: 2;
+  flex: 1; display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 48px 60px;
+  max-width: 1200px;
+}
+
+.hero-kicker {
+  font-family: var(--font-cond); font-size: 0.64rem; font-weight: 500;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange-lt);
+  display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+}
+.hero-kicker::before { content: ''; width: 36px; height: 1px; background: var(--orange); }
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 6.5vw, 6.8rem);
+  font-weight: 300; line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--white); max-width: 900px; margin-bottom: 0;
+}
+.hero h1 em { font-style: italic; color: var(--orange-lt); font-weight: 300; }
+
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.52);
+  max-width: 560px; line-height: 1.8; margin: 36px 0 48px;
+}
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+.btn-orange {
+  font-family: var(--font-cond); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--white); background: var(--orange);
+  padding: 14px 32px; display: inline-block; transition: background 0.2s;
+}
+.btn-orange:hover { background: var(--orange-dk); }
+
+.btn-outline-light {
+  font-family: var(--font-cond); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+}
+.btn-outline-light:hover { color: var(--orange-lt); border-color: var(--orange-lt); }
+
+/* Scroll cue */
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 48px; z-index: 2;
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+.hero-scroll-line {
+  width: 48px; height: 1px; background: rgba(255,255,255,0.15);
+  position: relative; overflow: hidden;
+}
+.hero-scroll-line::after {
+  content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: var(--orange);
+  animation: scrollSlide 2.4s ease-in-out infinite;
+}
+@keyframes scrollSlide { 0% { left: -100%; } 100% { left: 100%; } }
+
+/* Hero accent block */
+.hero-accent {
+  position: absolute; right: 0; top: 64px; bottom: 0; width: 3px;
+  background: linear-gradient(to bottom, transparent, var(--orange) 40%, var(--orange) 60%, transparent);
+  opacity: 0.4;
+}
+
+/* ════════════════════════════════
+   INTRO STATEMENT
+════════════════════════════════ */
+.intro-statement {
+  background: var(--orange);
+  padding: 52px 48px;
+}
+.intro-statement-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center;
+}
+.intro-statement .kicker {
+  font-family: var(--font-cond); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.intro-statement p {
+  font-size: 1.15rem; font-weight: 300; color: var(--white); line-height: 1.75;
+}
+.intro-statement p strong { font-weight: 600; }
+
+/* ════════════════════════════════
+   WHO WE WORK WITH
+════════════════════════════════ */
+.who { background: var(--cream); padding: 100px 0; }
+
+.who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 56px;
+}
+
+.who-card {
+  background: var(--white);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s var(--ease);
+  cursor: default;
+}
+.who-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--orange);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.who-card:hover { background: var(--grey-950); }
+.who-card:hover::after { transform: scaleX(1); }
+.who-card:hover .wc-title { color: var(--white); }
+.who-card:hover .wc-body { color: var(--grey-400); }
+.who-card:hover .wc-num { color: var(--orange); }
+.who-card:hover .wc-detail li { color: var(--grey-400); }
+.who-card:hover .wc-detail li::before { color: var(--orange); }
+
+.wc-num {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-200);
+  margin-bottom: 18px; transition: color 0.3s;
+}
+.wc-title {
+  font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;
+  color: var(--grey-950); line-height: 1.2; margin-bottom: 14px;
+  transition: color 0.3s;
+}
+.wc-body {
+  font-size: 0.87rem; font-weight: 300; color: var(--grey-600);
+  line-height: 1.8; transition: color 0.3s; margin-bottom: 20px;
+}
+.wc-detail { list-style: none; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--grey-100); }
+.who-card:hover .wc-detail { border-top-color: rgba(255,255,255,0.07); }
+.wc-detail li {
+  font-size: 0.82rem; font-weight: 300; color: var(--grey-600);
+  line-height: 1.6; padding: 4px 0 4px 16px; position: relative;
+  transition: color 0.3s;
+}
+.wc-detail li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--orange-lt); font-size: 0.72rem;
+  transition: color 0.3s;
+}
+
+/* ════════════════════════════════
+   CLIENT LOGOS
+════════════════════════════════ */
+.client-logos {
+  background: var(--grey-950); padding: 56px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.client-logos-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+}
+.cl-label {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--grey-600);
+  white-space: nowrap; padding-right: 40px; margin-right: 40px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.cl-logos { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; flex: 1; }
+.cl-logo {
+  opacity: 0.35; filter: brightness(0) invert(1);
+  transition: opacity 0.25s; cursor: default;
+  display: flex; align-items: center;
+}
+.cl-logo:hover { opacity: 0.75; }
+.cl-logo img { max-height: 32px; max-width: 100px; width: auto; object-fit: contain; }
+
+/* ════════════════════════════════
+   SOLUTIONS
+════════════════════════════════ */
+.solutions { background: var(--white); padding: 100px 0; }
+
+.solutions-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
+  margin-bottom: 64px;
+}
+.solutions-header-text p {
+  font-size: 0.92rem; font-weight: 300; color: var(--grey-600); line-height: 1.85; margin-top: 18px;
+}
+
+.solutions-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.sol-card {
+  position: relative; background: var(--cream);
+  overflow: hidden; transition: box-shadow 0.3s var(--ease);
+}
+.sol-card:hover { box-shadow: 0 16px 48px rgba(28,26,22,0.12); }
+
+/* Image placeholder */
+.sol-img-placeholder {
+  width: 100%; aspect-ratio: 16/9;
+  background: var(--grey-100);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px;
+  position: relative; overflow: hidden;
+}
+.sol-img-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 12px,
+    rgba(0,0,0,0.025) 12px, rgba(0,0,0,0.025) 13px
+  );
+}
+.sol-img-placeholder svg { opacity: 0.3; position: relative; z-index: 1; }
+.sol-img-placeholder span {
+  font-family: var(--font-cond); font-size: 0.64rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-400);
+  position: relative; z-index: 1;
+}
+
+/* Featured solution spans full width */
+.sol-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+.sol-card.featured .sol-img-placeholder { aspect-ratio: auto; min-height: 360px; height: 100%; }
+
+.sol-body { padding: 36px 36px 40px; }
+.sol-tag {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange);
+  margin-bottom: 12px;
+}
+.sol-name {
+  font-family: var(--font-serif); font-size: 1.55rem; font-weight: 400;
+  color: var(--grey-950); line-height: 1.15; margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.sol-outcome {
+  font-size: 0.92rem; font-weight: 500; color: var(--grey-800);
+  line-height: 1.6; margin-bottom: 12px;
+  border-left: 2px solid var(--orange); padding-left: 14px;
+}
+.sol-desc {
+  font-size: 0.85rem; font-weight: 300; color: var(--grey-600);
+  line-height: 1.8; margin-bottom: 24px;
+}
+.sol-link {
+  font-family: var(--font-cond); font-size: 0.64rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange);
+  display: inline-flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid transparent;
+  transition: gap 0.2s, border-color 0.2s;
+}
+.sol-link:hover { gap: 14px; border-bottom-color: var(--orange); }
+
+/* ════════════════════════════════
+   SUPPLIER PARTNERS
+════════════════════════════════ */
+.partners { background: var(--cream); padding: 88px 0; }
+
+.partners-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; margin-top: 52px;
+}
+
+.partner-card {
+  background: var(--white); padding: 36px 28px;
+  display: flex; flex-direction: column; align-items: flex-start;
+  transition: background 0.25s;
+}
+.partner-card:hover { background: var(--grey-950); }
+.partner-card:hover .partner-name { color: var(--white); }
+.partner-card:hover .partner-desc { color: var(--grey-400); }
+.partner-card:hover .partner-origin { color: var(--grey-600); }
+
+.partner-logo-area {
+  height: 48px; display: flex; align-items: center;
+  margin-bottom: 20px;
+}
+.partner-logo-area img {
+  max-height: 36px; max-width: 120px; width: auto; object-fit: contain;
+  filter: grayscale(100%); opacity: 0.6;
+  transition: opacity 0.25s, filter 0.25s;
+}
+.partner-card:hover .partner-logo-area img { filter: grayscale(0%) brightness(0) invert(1); opacity: 0.8; }
+
+.partner-name {
+  font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--grey-950); margin-bottom: 6px; transition: color 0.25s;
+}
+.partner-origin {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-400);
+  margin-bottom: 12px; transition: color 0.25s;
+}
+.partner-desc {
+  font-size: 0.82rem; font-weight: 300; color: var(--grey-600);
+  line-height: 1.7; transition: color 0.25s;
+}
+
+/* ════════════════════════════════
+   FEATURED PROJECTS
+════════════════════════════════ */
+.projects { background: var(--white); padding: 100px 0; }
+
+.projects-list { margin-top: 60px; border-top: 1px solid var(--grey-100); }
+
+.project-row {
+  display: grid; grid-template-columns: 220px 1fr 280px;
+  gap: 48px; padding: 44px 0; border-bottom: 1px solid var(--grey-100);
+  align-items: start; transition: padding-left 0.3s var(--ease);
+  cursor: default;
+}
+.project-row:hover { padding-left: 20px; }
+.project-row:hover .pr-client { color: var(--orange); }
+
+.pr-client {
+  font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400;
+  color: var(--grey-950); line-height: 1.3; transition: color 0.25s;
+}
+.pr-loc {
+  font-family: var(--font-cond); font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-400);
+  margin-top: 6px;
+}
+
+.pr-challenge {
+  font-size: 0.86rem; font-weight: 300; color: var(--grey-800);
+  line-height: 1.8;
+}
+.pr-challenge strong { font-weight: 500; color: var(--grey-950); }
+
+.pr-right { }
+.pr-product {
+  font-family: var(--font-cond); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-400);
+  margin-bottom: 8px;
+}
+.pr-result {
+  font-size: 0.85rem; font-weight: 400; color: var(--grey-800);
+  line-height: 1.65; padding-left: 14px;
+  border-left: 2px solid var(--orange);
+}
+
+/* ════════════════════════════════
+   TRADE ALLIANCE BANNER
+════════════════════════════════ */
+.trade-banner {
+  background: var(--grey-950);
+  padding: 72px 0;
+  position: relative; overflow: hidden;
+}
+.trade-banner::before {
+  content: 'TRADE';
+  position: absolute; right: -0.05em; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-serif); font-size: clamp(10rem, 18vw, 18rem);
+  font-weight: 300; color: rgba(255,255,255,0.025);
+  line-height: 1; pointer-events: none; user-select: none;
+  letter-spacing: -0.04em;
+}
+.trade-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: center;
+}
+.trade-copy h2 {
+  font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 300; color: var(--white); line-height: 1.15; letter-spacing: -0.02em;
+}
+.trade-copy h2 em { font-style: italic; color: var(--orange-lt); }
+.trade-copy p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.5); margin-top: 16px; max-width: 480px; line-height: 1.8; }
+.trade-perks { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.trade-perk {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.55);
+}
+.trade-perk::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+.trade-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; white-space: nowrap; }
+
+/* ════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════ */
+.testimonials { background: var(--cream); padding: 100px 0; }
+
+.t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+.t-card {
+  background: var(--white); padding: 40px 34px;
+  transition: background 0.3s var(--ease);
+}
+.t-card:hover { background: var(--grey-950); }
+.t-card:hover .t-quote { color: rgba(255,255,255,0.7); }
+.t-card:hover .t-author { color: var(--grey-400); border-top-color: rgba(255,255,255,0.06); }
+.t-card:hover .t-mark { color: var(--orange); }
+
+.t-mark {
+  font-family: var(--font-serif); font-size: 2.8rem; line-height: 0.8;
+  color: var(--orange-lt); display: block; margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.t-quote {
+  font-family: var(--font-serif); font-size: 1.0rem; font-style: italic;
+  font-weight: 300; color: var(--grey-800); line-height: 1.8;
+  margin-bottom: 24px; transition: color 0.3s;
+}
+.t-author {
+  font-family: var(--font-cond); font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-400);
+  padding-top: 18px; border-top: 1px solid var(--grey-100);
+  transition: color 0.3s, border-top-color 0.3s;
+}
+
+/* ════════════════════════════════
+   CTA BAND
+════════════════════════════════ */
+.cta-band {
+  background: var(--orange); padding: 88px 0;
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23ffffff' fill-opacity='0.07'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+.cta-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 48px; flex-wrap: wrap; position: relative;
+}
+.cta-copy h2 {
+  font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 300; color: var(--white); line-height: 1.1; letter-spacing: -0.02em;
+}
+.cta-copy h2 em { font-style: italic; }
+.cta-copy p { font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.75); margin-top: 12px; max-width: 420px; line-height: 1.75; }
+
+.btn-cta-white {
+  font-family: var(--font-cond); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange); background: var(--white);
+  padding: 16px 36px; white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-cta-white:hover { background: var(--grey-950); color: var(--white); }
+
+/* ════════════════════════════════
+   CONTACT FORM
+════════════════════════════════ */
+.contact { background: var(--white); padding: 100px 0; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1.7fr;
+  gap: 100px; align-items: start;
+}
+
+.contact-info h2 {
+  font-family: var(--font-serif); font-size: 2.6rem; font-weight: 300;
+  color: var(--grey-950); line-height: 1.15; letter-spacing: -0.02em; margin: 18px 0 22px;
+}
+.contact-info h2 em { font-style: italic; color: var(--grey-600); }
+.contact-info > p { font-size: 0.87rem; font-weight: 300; color: var(--grey-600); line-height: 1.85; margin-bottom: 36px; }
+
+.cdet { margin-bottom: 18px; }
+.cdet .cdet-l {
+  font-family: var(--font-cond); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 3px;
+}
+.cdet .cdet-v { font-size: 0.88rem; font-weight: 400; color: var(--grey-700); }
+.cdet .cdet-v a { color: var(--grey-700); border-bottom: 1px solid var(--grey-100); transition: color 0.2s, border-color 0.2s; }
+.cdet .cdet-v a:hover { color: var(--orange); border-color: var(--orange); }
+
+/* form fields */
+.frow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fld { margin-bottom: 22px; }
+.fld label {
+  display: block; font-family: var(--font-cond); font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-400); margin-bottom: 9px;
+}
+.fld input, .fld select, .fld textarea {
+  width: 100%; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 300;
+  color: var(--grey-950); background: transparent;
+  border: none; border-bottom: 1px solid var(--grey-200);
+  padding: 10px 0; outline: none; -webkit-appearance: none; border-radius: 0;
+  transition: border-color 0.2s;
+}
+.fld input:focus, .fld select:focus, .fld textarea:focus { border-bottom-color: var(--orange); }
+.fld input::placeholder, .fld textarea::placeholder { color: var(--grey-200); font-weight: 300; }
+.fld textarea { resize: none; min-height: 90px; }
+.fsubmit {
+  font-family: var(--font-cond); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--white); background: var(--grey-950);
+  border: none; padding: 15px 36px; cursor: pointer; transition: background 0.2s; margin-top: 8px;
+}
+.fsubmit:hover { background: var(--orange); }
+.fnote { font-size: 0.72rem; font-weight: 300; color: var(--grey-400); margin-top: 12px; }
+
+/* ════════════════════════════════
+   FOOTER
+════════════════════════════════ */
+.pg-footer {
+  background: var(--grey-950); padding: 48px 48px 28px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+.footer-top {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+  padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.04); margin-bottom: 20px;
+}
+.footer-logo .lo-patio { color: rgba(255,255,255,0.38); }
+.footer-logo .lo-gurus { color: var(--orange); }
+.footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+.footer-links a {
+  font-family: var(--font-cond); font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.22); transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.65); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+}
+.footer-bottom p { font-size: 0.68rem; font-weight: 300; color: rgba(255,255,255,0.16); }
+
+/* ════════════════════════════════
+   RESPONSIVE
+════════════════════════════════ */
+@media (max-width: 1024px) {
+  .solutions-header { grid-template-columns: 1fr; gap: 20px; }
+  .sol-card.featured { grid-template-columns: 1fr; }
+  .sol-card.featured .sol-img-placeholder { min-height: 260px; aspect-ratio: 16/9; }
+  .partners-grid { grid-template-columns: repeat(2, 1fr); }
+  .trade-inner { grid-template-columns: 1fr; gap: 40px; }
+  .trade-actions { flex-direction: row; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .pg-nav { padding: 0 20px; }
+  .pg-nav-links { display: none; }
+
+  .hero-inner { padding: 60px 24px 48px; }
+  .intro-statement { padding: 40px 24px; }
+  .intro-statement-inner { grid-template-columns: 1fr; gap: 16px; }
+
+  .who { padding: 72px 0; }
+  .who-grid { grid-template-columns: 1fr; gap: 2px; }
+
+  .solutions, .projects, .testimonials, .contact, .partners { padding: 72px 0; }
+
+  .solutions-grid { grid-template-columns: 1fr; }
+  .sol-card.featured { grid-template-columns: 1fr; }
+
+  .partners-grid { grid-template-columns: 1fr 1fr; }
+
+  .project-row { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+  .project-row:hover { padding-left: 0; }
+  .pr-loc { display: none; }
+
+  .t-grid { grid-template-columns: 1fr; }
+
+  .cta-band, .trade-banner { padding: 64px 0; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .frow2 { grid-template-columns: 1fr; }
+
+  .pg-footer { padding: 36px 24px 24px; }
+  .footer-top { flex-direction: column; align-items: flex-start; }
+  .client-logos-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .cl-label { border-right: none; padding-right: 0; margin-right: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     NAV
+════════════════════════════════ -->
+<nav class="pg-nav" role="navigation" aria-label="Main navigation">
+  <a href="https://patiogurus.com/" class="pg-nav-logo" aria-label="PatioGurus">
+    <span class="lo lo-patio">Patio</span><span class="lo lo-gurus">Gurus</span>
+    <span class="lo-tag">Commercial</span>
+  </a>
+  <div class="pg-nav-right">
+    <ul class="pg-nav-links">
+      <li><a href="#who">Who We Work With</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+    <a href="#contact" class="pg-nav-cta">Start a Project</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-accent" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker" aria-hidden="true">Commercial Outdoor Solutions &mdash; Greater Vancouver</div>
+    <h1>
+      Outdoor spaces designed<br>for <em>performance,</em><br>
+      built for <em>year-round use.</em>
+    </h1>
+    <p class="hero-sub">
+      Commercial outdoor solutions for restaurants, hospitality venues, and large-scale development projects.
+      Retractable systems, louvre roofs, motorized screens, and heating &mdash; specified for high-traffic environments
+      and designed to generate returns.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-orange">Request a Consultation</a>
+      <a href="#projects" class="btn-outline-light">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     INTRO STATEMENT
+════════════════════════════════ -->
+<div class="intro-statement">
+  <div class="intro-statement-inner">
+    <div class="kicker">Our Commitment</div>
+    <p>
+      When a commercial space works well outdoors, it generates revenue, retains guests longer, and creates a reputation for quality. 
+      <strong>We work with operators and design professionals who understand that.</strong> 
+      Every solution we specify is engineered around the outcome you need, not just the product we sell.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     WHO WE WORK WITH
+════════════════════════════════ -->
+<section class="who" id="who">
+  <div class="container">
+    <div class="eyebrow reveal">Who We Work With</div>
+    <h2 class="h-display reveal" style="font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 0; max-width: 620px;">
+      The right partner for projects<br>that <em>demand precision.</em>
+    </h2>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <div class="wc-num">01</div>
+        <div class="wc-title">Restaurants &amp; Hospitality</div>
+        <p class="wc-body">Every uncovered patio seat is revenue at risk. We help hospitality operators extend season, maximize seating capacity, and create outdoor environments that guests choose to stay in longer.</p>
+        <ul class="wc-detail">
+          <li>Flexible weather protection for year-round service</li>
+          <li>Heating systems that push the season into winter</li>
+          <li>Retractable screens for wind, rain, and privacy control</li>
+          <li>Large-span umbrella systems with no building attachment</li>
+        </ul>
+      </div>
+      <div class="who-card reveal" style="transition-delay:0.1s">
+        <div class="wc-num">02</div>
+        <div class="wc-title">Architects &amp; Designers</div>
+        <p class="wc-body">We function as a specialist consultant on the outdoor envelope of a project. Product specifications, CAD documentation, site visits, and installation coordination &mdash; all under one relationship.</p>
+        <ul class="wc-detail">
+          <li>Full technical specifications and CAD files on request</li>
+          <li>Trade-only pricing and project-based discounts</li>
+          <li>European-engineered products not widely available in Canada</li>
+          <li>Dedicated project contact from brief to handover</li>
+        </ul>
+      </div>
+      <div class="who-card reveal" style="transition-delay:0.2s">
+        <div class="wc-num">03</div>
+        <div class="wc-title">Builders &amp; Developers</div>
+        <p class="wc-body">Pre-construction and multi-unit projects need suppliers who can commit to a programme and hold to it. We offer supply-and-install packages built around your timeline, not ours.</p>
+        <ul class="wc-detail">
+          <li>Pre-construction specification and value engineering</li>
+          <li>Multi-unit volume pricing</li>
+          <li>Site coordination within your construction schedule</li>
+          <li>Post-handover service and warranty management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     CLIENT LOGOS
+════════════════════════════════ -->
+<div class="client-logos" aria-label="Selected clients">
+  <div class="client-logos-inner">
+    <div class="cl-label">Selected Clients</div>
+    <div class="cl-logos">
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/seymour-logo.png?v=1748281844&width=200" alt="Seymour Golf &amp; Country Club" loading="lazy">
+      </div>
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/cannon-logo.png?v=1748281962&width=200" alt="Cannon Estate Winery" loading="lazy">
+      </div>
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/steamworks_logo.png?v=1748282462&width=200" alt="Steamworks" loading="lazy">
+      </div>
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/pica-logo.png?v=1748281875&width=200" alt="Pacific Institute of Culinary Arts" loading="lazy">
+      </div>
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/Browns-logo.png?v=1748282104&width=200" alt="Browns Socialhouse" loading="lazy">
+      </div>
+      <div class="cl-logo">
+        <img src="https://patiogurus.com/cdn/shop/files/TP-logo.png?v=1748282286&width=200" alt="The Patio" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     SOLUTIONS
+════════════════════════════════ -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <div class="solutions-header">
+      <div class="solutions-header-text">
+        <div class="eyebrow reveal">Commercial Solutions</div>
+        <h2 class="h-display reveal" style="font-size: clamp(2.2rem, 4vw, 3.6rem);">
+          Engineered for the<br>demands of <em>real operations.</em>
+        </h2>
+        <p class="reveal">Each solution below is specified around an outcome, not a product category. Every system is custom-manufactured to your space and installed by our own team.</p>
+      </div>
+    </div>
+
+    <div class="solutions-grid">
+
+      <!-- FEATURED: Louvre / Outdoor Rooms -->
+      <div class="sol-card featured reveal">
+        <div class="sol-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="20" width="36" height="22" stroke="#9A9590" stroke-width="1.5"/>
+            <path d="M2 20L24 6L46 20" stroke="#9A9590" stroke-width="1.5"/>
+            <line x1="6" y1="14" x2="42" y2="14" stroke="#9A9590" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+          <span>Add product image here</span>
+        </div>
+        <div class="sol-body">
+          <div class="sol-tag">Featured Solution</div>
+          <div class="sol-name">Outdoor Rooms &amp; Louvre Roof Systems</div>
+          <p class="sol-outcome">Transform an exposed patio into a fully enclosed, climate-controlled extension of your indoor space.</p>
+          <p class="sol-desc">Louvre roof systems give commercial operators complete control over sun, rain, and ventilation through motorized adjustable blades. Combined with motorized side screens and integrated heating, the result is a weatherproof outdoor room that operates 365 days a year. Ideal for high-value hospitality venues, hotel terraces, and strata amenity spaces where maximising year-round usability directly impacts revenue.</p>
+          <a href="https://patiogurus.com/products/outdoor-rooms" class="sol-link">
+            Explore Outdoor Rooms &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Motorized Screens -->
+      <div class="sol-card reveal">
+        <div class="sol-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="8" width="32" height="32" stroke="#9A9590" stroke-width="1.5"/>
+            <path d="M8 8L40 40M8 40L40 8" stroke="#9A9590" stroke-width="1" opacity="0.4"/>
+            <circle cx="24" cy="8" r="3" fill="#9A9590" opacity="0.5"/>
+          </svg>
+          <span>Add product image here</span>
+        </div>
+        <div class="sol-body">
+          <div class="sol-tag">Weather &amp; Privacy</div>
+          <div class="sol-name">Motorized Screens &amp; Glass Systems</div>
+          <p class="sol-outcome">Extend patio season without permanent enclosure. Flexible, code-compliant, and fully reversible.</p>
+          <p class="sol-desc">Retractable motorized screens with clear vinyl or mesh panels create a practical barrier against wind, rain, and UV exposure while retaining the open character of the space. Suitable for venues facing building attachment restrictions or where permanent enclosure is not permitted. System retracts entirely in fair weather.</p>
+          <a href="https://patiogurus.com/pages/motorized-shades" class="sol-link">
+            Explore Screens &amp; Shades &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Awnings -->
+      <div class="sol-card reveal" style="transition-delay:0.1s">
+        <div class="sol-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22L24 10L44 22" stroke="#9A9590" stroke-width="1.5"/>
+            <path d="M4 22Q14 30 24 30Q34 30 44 22" stroke="#9A9590" stroke-width="1.5" fill="none"/>
+            <line x1="24" y1="30" x2="24" y2="40" stroke="#9A9590" stroke-width="1.5"/>
+          </svg>
+          <span>Add product image here</span>
+        </div>
+        <div class="sol-body">
+          <div class="sol-tag">Shade &amp; Rain Protection</div>
+          <div class="sol-name">Retractable Awning Systems</div>
+          <p class="sol-outcome">Purpose-built shade and rain protection with a clean architectural finish. Custom spans available up to 12m.</p>
+          <p class="sol-desc">Motorized or manual building-mounted awnings in commercial grades suited to restaurant terraces, hotel entrances, and covered walkways. Stobag engineering for Swiss-grade build quality and 10-year structural warranty. Specified to match your facade and installed without disrupting operations.</p>
+          <a href="https://patiogurus.com/products/retractable-awning" class="sol-link">
+            Explore Awnings &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Umbrellas -->
+      <div class="sol-card reveal" style="transition-delay:0.15s">
+        <div class="sol-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8 Q6 24 6 26 Q14 24 24 26 Q34 24 42 26 Q42 24 24 8Z" stroke="#9A9590" stroke-width="1.5" fill="none"/>
+            <line x1="24" y1="26" x2="24" y2="44" stroke="#9A9590" stroke-width="1.5"/>
+            <path d="M18 44 Q24 40 30 44" stroke="#9A9590" stroke-width="1.5" fill="none"/>
+          </svg>
+          <span>Add product image here</span>
+        </div>
+        <div class="sol-body">
+          <div class="sol-tag">Freestanding Coverage</div>
+          <div class="sol-name">Large-Format Outdoor Umbrellas</div>
+          <p class="sol-outcome">Expansive shade coverage with no building attachment required. Ideal for pool decks, open terraces, and golf clubs.</p>
+          <p class="sol-desc">Caravita cantilever and centre-pole umbrella systems engineered for commercial high-traffic environments. Available in spans that cover multiple tables from a single base. Wind-rated, motorized options available, and fully customisable in terms of fabric, finish, and branding. No infrastructure works required.</p>
+          <a href="https://patiogurus.com/pages/parasols" class="sol-link">
+            Explore Umbrellas &#8594;
+          </a>
+        </div>
+      </div>
+
+      <!-- Heaters -->
+      <div class="sol-card reveal" style="transition-delay:0.2s">
+        <div class="sol-img-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="18" width="28" height="8" rx="4" stroke="#9A9590" stroke-width="1.5"/>
+            <path d="M18 26L16 38M24 26V38M30 26L32 38" stroke="#9A9590" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="24" cy="14" r="4" stroke="#9A9590" stroke-width="1.5"/>
+          </svg>
+          <span>Add product image here</span>
+        </div>
+        <div class="sol-body">
+          <div class="sol-tag">Season Extension</div>
+          <div class="sol-name">Commercial Outdoor Heating</div>
+          <p class="sol-outcome">Push the revenue-generating season from summer into autumn and winter. Bromic systems deliver precise warmth with minimal visual footprint.</p>
+          <p class="sol-desc">Bromic infrared heating is the benchmark for commercial outdoor heating globally. Wall-mounted, ceiling-mounted, and freestanding options. Electric and gas variants. Designed to heat the people, not the air, making them significantly more efficient than traditional patio heaters and substantially less intrusive on a curated outdoor aesthetic.</p>
+          <a href="https://patiogurus.com/products/heaters" class="sol-link">
+            Explore Heating &#8594;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     SUPPLIER PARTNERS
+════════════════════════════════ -->
+<section class="partners" id="partners">
+  <div class="container">
+    <div class="eyebrow reveal">Our Supplier Partners</div>
+    <h2 class="h-display reveal" style="font-size: clamp(2rem, 3.8vw, 3.2rem); margin-bottom: 0; max-width: 580px;">
+      European-engineered products.<br><em>Specified for the Canadian climate.</em>
+    </h2>
+    <div class="partners-grid">
+
+      <div class="partner-card reveal">
+        <div class="partner-logo-area">
+          <img src="https://patiogurus.com/cdn/shop/files/Stobag-1200px.png?v=1701124911&width=300" alt="Stobag" loading="lazy">
+        </div>
+        <div class="partner-name">Stobag</div>
+        <div class="partner-origin">Switzerland &mdash; Awnings &amp; Solar Shading</div>
+        <p class="partner-desc">Premium Swiss awning engineering with a 10-year structural warranty. The benchmark for large-span commercial awnings in Europe.</p>
+      </div>
+
+      <div class="partner-card reveal" style="transition-delay:0.08s">
+        <div class="partner-logo-area">
+          <img src="https://patiogurus.com/cdn/shop/files/Caravita-1200px.png?v=1701124911&width=300" alt="Caravita" loading="lazy">
+        </div>
+        <div class="partner-name">Caravita</div>
+        <div class="partner-origin">Germany &mdash; Umbrellas &amp; Parasols</div>
+        <p class="partner-desc">German engineering meets Italian aesthetic. Caravita produces large-format commercial umbrellas found at Michelin-starred restaurants and luxury resorts worldwide.</p>
+      </div>
+
+      <div class="partner-card reveal" style="transition-delay:0.16s">
+        <div class="partner-logo-area">
+          <img src="https://patiogurus.com/cdn/shop/files/bromic_logo_RGB_opti.png?v=1742492722&width=240" alt="Bromic Heating" loading="lazy">
+        </div>
+        <div class="partner-name">Bromic Heating</div>
+        <div class="partner-origin">Australia &mdash; Outdoor Heating Systems</div>
+        <p class="partner-desc">The global standard for premium outdoor heating. Bromic infrared systems are specified by architects worldwide for their performance, efficiency, and minimal visual footprint.</p>
+      </div>
+
+      <div class="partner-card reveal" style="transition-delay:0.24s">
+        <div class="partner-logo-area">
+          <img src="https://patiogurus.com/cdn/shop/files/WizardScreens-1200px.png?v=1701124911&width=300" alt="Wizard Screens" loading="lazy">
+        </div>
+        <div class="partner-name">Wizard Screens</div>
+        <div class="partner-origin">North America &mdash; Retractable Screen Systems</div>
+        <p class="partner-desc">North American-manufactured retractable screen systems. 25 years of technical development, engineered specifically for the demands of the Pacific Northwest climate.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     FEATURED PROJECTS
+════════════════════════════════ -->
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="eyebrow reveal">Featured Projects</div>
+    <h2 class="h-display reveal" style="font-size: clamp(2.2rem, 4vw, 3.6rem); max-width: 560px;">
+      Problems solved.<br><em>Spaces transformed.</em>
+    </h2>
+
+    <div class="projects-list">
+
+      <div class="project-row reveal">
+        <div>
+          <div class="pr-client">Cannon Estate Winery</div>
+          <div class="pr-loc">Abbotsford, BC</div>
+        </div>
+        <div>
+          <p class="pr-challenge">Building restrictions ruled out any permanent enclosure, but the winery needed year-round patio revenue without sacrificing the open-air character guests come for in summer. <strong>SmartScreen motorized shades with clear vinyl panels</strong> provided complete wind and rain protection in winter, and retracted entirely when the weather allowed. A compliance constraint became a competitive advantage.</p>
+        </div>
+        <div class="pr-right">
+          <div class="pr-product">Motorized Screens &mdash; SmartScreen</div>
+          <div class="pr-result">Year-round patio operation. Full seasonal flexibility. No permanent structure required.</div>
+        </div>
+      </div>
+
+      <div class="project-row reveal">
+        <div>
+          <div class="pr-client">Pacific Institute of Culinary Arts</div>
+          <div class="pr-loc">Vancouver, BC &mdash; False Creek</div>
+        </div>
+        <div>
+          <p class="pr-challenge">A waterfront dining terrace on False Creek needed weather coverage without obstructing the views that define the venue experience. The school also required a solution that suited the aesthetic of a modern culinary facility. <strong>Stobag Resobox retractable awning</strong> provided on-demand shade and rain protection with a clean, architectural profile that complements the building.</p>
+        </div>
+        <div class="pr-right">
+          <div class="pr-product">Retractable Awning &mdash; Stobag Resobox</div>
+          <div class="pr-result">All-weather outdoor dining. Views preserved. Venue aesthetic elevated.</div>
+        </div>
+      </div>
+
+      <div class="project-row reveal">
+        <div>
+          <div class="pr-client">Seymour Golf &amp; Country Club</div>
+          <div class="pr-loc">North Vancouver, BC</div>
+        </div>
+        <div>
+          <p class="pr-challenge">An exposed restaurant patio with panoramic views and no available building attachment points. Traditional awning systems were structurally incompatible. The club needed maximum shade coverage without touching the building or compromising sightlines. <strong>Caravita Amalfi Duo cantilever umbrellas</strong> delivered full table coverage from a single base, preserving the open character of the space entirely.</p>
+        </div>
+        <div class="pr-right">
+          <div class="pr-product">Commercial Umbrellas &mdash; Caravita</div>
+          <div class="pr-result">Full shade coverage. Sightlines preserved. No building works required.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     TRADE ALLIANCE
+════════════════════════════════ -->
+<section class="trade-banner" id="trade">
+  <div class="trade-inner">
+    <div class="trade-copy">
+      <div class="eyebrow" style="color: var(--orange-lt);">
+        <span style="display:block; width:28px; height:1px; background: var(--orange-lt);"></span>
+        Industry Trade Alliance
+      </div>
+      <h2>A better working relationship<br>for <em>design professionals.</em></h2>
+      <p>Architects, interior designers, developers, and contractors working on commercial projects can access exclusive trade pricing, extended product specifications, and a dedicated project contact through our Industry Trade Alliance.</p>
+      <div class="trade-perks">
+        <div class="trade-perk">Trade-only pricing and project volume discounts</div>
+        <div class="trade-perk">Full technical specs and CAD files on request</div>
+        <div class="trade-perk">Dedicated Guru support via phone, email, or video call</div>
+        <div class="trade-perk">Access to products not available for retail purchase</div>
+      </div>
+    </div>
+    <div class="trade-actions">
+      <a href="mailto:sales@patiogurus.com?subject=Trade%20Alliance%20Request" class="btn-orange">Apply for Trade Access</a>
+      <a href="https://patiogurus.com/pages/about-us" class="btn-outline-light" style="color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.2);">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     TESTIMONIALS
+════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="eyebrow reveal">Client Feedback</div>
+    <h2 class="h-display reveal" style="font-size: clamp(2rem, 3.8vw, 3.2rem); max-width: 500px;">
+      What commercial clients<br><em>actually say.</em>
+    </h2>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <span class="t-mark">&ldquo;</span>
+        <p class="t-quote">Fast, efficient, and in contact throughout the project across both buildings. Site sign-in protocols were respected without issue. The final result is exceptional and the office team were always available to answer questions in short order.</p>
+        <div class="t-author">Krystle &mdash; Commercial Client</div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:0.1s">
+        <span class="t-mark">&ldquo;</span>
+        <p class="t-quote">Your crew did an outstanding job on the installation. It has been great having your screens, year after year. We would not look elsewhere for this kind of work.</p>
+        <div class="t-author">Ron &amp; Nancy &mdash; Bowen Island</div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:0.2s">
+        <span class="t-mark">&ldquo;</span>
+        <p class="t-quote">Always prompt, efficient, and genuinely a pleasure to deal with. The sales team was responsive and the install date came through faster than we expected. Exactly what you want from a commercial supplier.</p>
+        <div class="t-author">Issha &amp; Jeff &mdash; East Vancouver</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     CTA BAND
+════════════════════════════════ -->
+<div class="cta-band">
+  <div class="cta-inner">
+    <div class="cta-copy">
+      <h2>Ready to scope<br><em>your project?</em></h2>
+      <p>Whether you are at concept stage, in pre-construction, or ready to proceed, our commercial team will respond within one business day.</p>
+    </div>
+    <a href="#contact" class="btn-cta-white">Get in Touch</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════
+     CONTACT FORM
+════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Contact</div>
+        <h2>Let's talk about<br><em>your space.</em></h2>
+        <p>Whether you have a brief, a set of drawings, or just a problem to solve, our commercial team is the right first call. We respond within one business day.</p>
+        <div class="cdet">
+          <div class="cdet-l">Phone</div>
+          <div class="cdet-v"><a href="tel:18449924878">1&ndash;844&ndash;992&ndash;GURU</a> &nbsp;&middot;&nbsp; <a href="tel:6044841135">604&ndash;484&ndash;1135</a></div>
+        </div>
+        <div class="cdet">
+          <div class="cdet-l">Email</div>
+          <div class="cdet-v"><a href="mailto:sales@patiogurus.com">sales@patiogurus.com</a></div>
+        </div>
+        <div class="cdet">
+          <div class="cdet-l">Office</div>
+          <div class="cdet-v">4263 Phillips Avenue, Burnaby, BC</div>
+        </div>
+        <div class="cdet">
+          <div class="cdet-l">Service Area</div>
+          <div class="cdet-v">Greater Vancouver &middot; Whistler &middot; Sunshine Coast &middot; Bowen Island</div>
+        </div>
+        <div class="cdet">
+          <div class="cdet-l">Hours</div>
+          <div class="cdet-v">Monday to Friday, 8:30&ndash;4:30</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="frow2">
+          <div class="fld">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" placeholder="Jane" autocomplete="given-name">
+          </div>
+          <div class="fld">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Smith" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="fld">
+          <label for="org">Organisation</label>
+          <input type="text" id="org" name="organisation" placeholder="Studio, firm, or venue name">
+        </div>
+        <div class="frow2">
+          <div class="fld">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="604 XXX XXXX" autocomplete="tel">
+          </div>
+          <div class="fld">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="jane@studio.com" autocomplete="email">
+          </div>
+        </div>
+        <div class="fld">
+          <label for="role">Your Role</label>
+          <select id="role" name="role">
+            <option value="">Select your role</option>
+            <option value="architect">Architect</option>
+            <option value="designer">Interior Designer</option>
+            <option value="facility">Facility Manager</option>
+            <option value="hospitality">Hospitality Operator</option>
+            <option value="contractor">General Contractor</option>
+            <option value="developer">Developer</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="solution">Solutions of Interest</label>
+          <select id="solution" name="solution">
+            <option value="">Select a solution area</option>
+            <option value="outdoor-rooms">Outdoor Rooms &amp; Louvre Systems</option>
+            <option value="screens">Motorized Screens &amp; Glass Systems</option>
+            <option value="awnings">Retractable Awnings</option>
+            <option value="umbrellas">Large-Format Umbrellas</option>
+            <option value="heating">Outdoor Heating</option>
+            <option value="multiple">Multiple Solutions</option>
+            <option value="unsure">Not Yet Decided</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="message">Project Overview</label>
+          <textarea id="message" name="message" placeholder="Describe your space, project type, timeline, and what you are trying to achieve. The more context you share, the faster we can help."></textarea>
+        </div>
+        <button type="button" class="fsubmit">Submit Enquiry</button>
+        <p class="fnote">We respond within one business day. No obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer class="pg-footer" role="contentinfo">
+  <div class="footer-top">
+    <a href="https://patiogurus.com/" class="pg-nav-logo footer-logo" aria-label="PatioGurus home">
+      <span class="lo lo-patio">Patio</span><span class="lo lo-gurus">Gurus</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="https://patiogurus.com/products/outdoor-rooms">Outdoor Rooms</a></li>
+      <li><a href="https://patiogurus.com/pages/motorized-shades">Motorized Screens</a></li>
+      <li><a href="https://patiogurus.com/products/retractable-awning">Awnings</a></li>
+      <li><a href="https://patiogurus.com/pages/parasols">Umbrellas</a></li>
+      <li><a href="https://patiogurus.com/products/heaters">Heating</a></li>
+      <li><a href="https://patiogurus.com/pages/about-us">Trade Alliance</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 PatioGurus. A Division of Wizard Screen Solutions. Burnaby, BC Canada.</p>
+    <p>Serving Greater Vancouver &middot; Whistler &middot; Sunshine Coast &middot; Bowen Island</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════
+     SCROLL REVEAL SCRIPT
+     (Shopify-safe: no imports, no build tools)
+════════════════════════════════ -->
+<script>
+(function() {
+  var els = document.querySelectorAll('.reveal');
+  if (!window.IntersectionObserver) {
+    els.forEach(function(el) { el.classList.add('in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
